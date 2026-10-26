@@ -75,3 +75,67 @@ let estadoTarea: EstadoTarea = "pendiente";
 estadoTarea = "en-proceso";
 
 console.log(estadoTarea);
+
+// Ejercicio 9
+interface Persona {
+  nombre: string;
+  edad: number;
+  ciudad?: string;
+}
+
+const persona1: Persona = {
+  nombre: "Ana",
+  edad: 25,
+  ciudad: "Madrid",
+};
+
+const persona2: Persona = {
+  nombre: "Luis",
+  edad: 30,
+};
+
+function mostrarPersona(persona: Persona): void {
+  console.log(`${persona.nombre}, ${persona.edad} años`);
+
+  if (persona.ciudad) {
+    console.log(`Ciudad: ${persona.ciudad}`);
+  }
+}
+
+mostrarPersona(persona1);
+mostrarPersona(persona2);
+
+// Ejercicio 10
+interface Libro {
+  titulo: string;
+  autor: string;
+  paginas: number;
+  disponible: boolean;
+}
+
+const libros: Libro[] = [
+  {
+    titulo: "El principito",
+    autor: "Antoine de Saint-Exupéry",
+    paginas: 96,
+    disponible: true,
+  },
+  {
+    titulo: "1984",
+    autor: "George Orwell",
+    paginas: 328,
+    disponible: false,
+  },
+  {
+    titulo: "El hobbit",
+    autor: "J. R. R. Tolkien",
+    paginas: 310,
+    disponible: true,
+  },
+];
+
+function estaDisponible(libro: Libro): boolean {
+  return libro.disponible;
+}
+
+libros.filter(estaDisponible).forEach((libro) => console.log(libro.titulo));
