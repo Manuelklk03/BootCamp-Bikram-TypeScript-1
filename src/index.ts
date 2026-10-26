@@ -215,3 +215,73 @@ const usuarioSoloLectura: Readonly<Usuario> = {
 };
 
 console.log(configuracionCompleta, usuarioSoloLectura);
+
+// Ejercicio 16
+class CuentaBancaria {
+  private saldo: number;
+
+  constructor(saldoInicial: number) {
+    this.saldo = saldoInicial;
+  }
+
+  ingresar(cantidad: number): void {
+    if (cantidad > 0) {
+      this.saldo += cantidad;
+    }
+  }
+
+  consultarSaldo(): number {
+    return this.saldo;
+  }
+}
+
+const cuenta = new CuentaBancaria(100);
+
+cuenta.ingresar(50);
+
+console.log(cuenta.consultarSaldo());
+
+// Ejercicio 17
+interface Reproducible {
+  reproducir(): void;
+}
+
+class Cancion implements Reproducible {
+  reproducir(): void {
+    console.log("Reproduciendo una canción");
+  }
+}
+
+class Video implements Reproducible {
+  reproducir(): void {
+    console.log("Reproduciendo un vídeo");
+  }
+}
+
+const elementos: Reproducible[] = [new Cancion(), new Video()];
+
+elementos.forEach((elemento) => elemento.reproducir());
+
+// Ejercicio 18
+enum EstadoPedido {
+  Pendiente = "pendiente",
+  Enviado = "enviado",
+  Entregado = "entregado",
+}
+
+function mensajePedido(estado: EstadoPedido): string {
+  switch (estado) {
+    case EstadoPedido.Pendiente:
+      return "El pedido está pendiente";
+
+    case EstadoPedido.Enviado:
+      return "El pedido ya se ha enviado";
+
+    case EstadoPedido.Entregado:
+      return "El pedido ha sido entregado";
+  }
+}
+
+console.log(mensajePedido(EstadoPedido.Pendiente));
+console.log(mensajePedido(EstadoPedido.Enviado));
+console.log(mensajePedido(EstadoPedido.Entregado));
