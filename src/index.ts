@@ -58,3 +58,20 @@ const producto2: Producto = {
   nombre: "Ratón",
   precio: 20,
 };
+
+// Ejercicio 7
+function mostrarProducto(producto: Producto): string {
+  return `${producto.nombre}: ${producto.precio} €`;
+}
+
+console.log(mostrarProducto(producto1));
+console.log(mostrarProducto(producto2));
+
+// Ejercicio 8
+type EstadoTarea = "pendiente" | "en-proceso" | "completada";
+
+let estadoTarea: EstadoTarea = "pendiente";
+
+estadoTarea = "en-proceso";
+
+console.log(estadoTarea);
