@@ -139,3 +139,29 @@ function estaDisponible(libro: Libro): boolean {
 }
 
 libros.filter(estaDisponible).forEach((libro) => console.log(libro.titulo));
+
+// Ejercicio 11
+function buscarUsuario(id: number): string | undefined {
+  return id === 1 ? "Ana" : undefined;
+}
+
+const usuarioEncontrado = buscarUsuario(1);
+
+if (usuarioEncontrado !== undefined) {
+  console.log(usuarioEncontrado.toUpperCase());
+}
+
+// Ejercicio 12
+let dato: unknown = "Hola TypeScript";
+
+if (typeof dato === "string") {
+  console.log(dato.toUpperCase());
+}
+
+dato = 42;
+
+if (typeof dato === "string") {
+  console.log(dato.toUpperCase());
+} else {
+  console.log("El dato no es un texto");
+}
