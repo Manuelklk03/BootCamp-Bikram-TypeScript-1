@@ -165,3 +165,53 @@ if (typeof dato === "string") {
 } else {
   console.log("El dato no es un texto");
 }
+
+// Ejercicio 13
+type Usuario = {
+  id: number;
+  nombre: string;
+  email: string;
+  edad: number;
+};
+
+const cambios: Partial<Usuario> = {
+  email: "ana.nuevo@email.com",
+};
+
+const resumen: Pick<Usuario, "id" | "nombre"> = {
+  id: 1,
+  nombre: "Ana",
+};
+
+console.log(cambios, resumen);
+
+// Ejercicio 14
+type UsuarioPublico = Omit<Usuario, "email">;
+
+const usuarioPublico: UsuarioPublico = {
+  id: 1,
+  nombre: "Ana",
+  edad: 25,
+};
+
+console.log(usuarioPublico);
+
+// Ejercicio 15
+interface Configuracion {
+  tema?: string;
+  idioma?: string;
+}
+
+const configuracionCompleta: Required<Configuracion> = {
+  tema: "oscuro",
+  idioma: "es",
+};
+
+const usuarioSoloLectura: Readonly<Usuario> = {
+  id: 2,
+  nombre: "Luis",
+  email: "luis@email.com",
+  edad: 30,
+};
+
+console.log(configuracionCompleta, usuarioSoloLectura);
