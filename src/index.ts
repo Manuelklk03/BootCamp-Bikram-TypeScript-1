@@ -21,3 +21,40 @@ function presentar(nombre: string, apellido?: string): string {
 
 console.log(presentar("Ana", "Pérez"));
 console.log(presentar("Ana"));
+
+// Ejercicio 4
+function calcularDescuento(precio: number, porcentaje: number): number {
+  return precio - (precio * porcentaje) / 100;
+}
+
+console.log(calcularDescuento(100, 20));
+
+// Ejercicio 5
+function mostrarId(id: string | number): void {
+  if (typeof id === "string") {
+    console.log(id.toUpperCase());
+  } else {
+    console.log(id.toFixed(2));
+  }
+}
+
+mostrarId("usr-25");
+mostrarId(25);
+
+// Ejercicio 6
+type Producto = {
+  nombre: string;
+  precio: number;
+  descripcion?: string;
+};
+
+const producto1: Producto = {
+  nombre: "Teclado",
+  precio: 35,
+  descripcion: "Teclado mecánico",
+};
+
+const producto2: Producto = {
+  nombre: "Ratón",
+  precio: 20,
+};
