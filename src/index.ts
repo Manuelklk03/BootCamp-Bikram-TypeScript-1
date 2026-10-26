@@ -285,3 +285,31 @@ function mensajePedido(estado: EstadoPedido): string {
 console.log(mensajePedido(EstadoPedido.Pendiente));
 console.log(mensajePedido(EstadoPedido.Enviado));
 console.log(mensajePedido(EstadoPedido.Entregado));
+
+// Ejercicio 19
+function primero<T>(elementos: T[]): T | undefined {
+  return elementos[0];
+}
+
+console.log(primero([10, 20, 30]));
+console.log(primero(["Ana", "Luis"]));
+console.log(primero([]));
+
+// Ejercicio 20
+type Puntuaciones = Record<string, number>;
+
+const puntuaciones: Puntuaciones = {
+  Ana: 9,
+  Luis: 7,
+  Marta: 9.5,
+};
+
+async function obtenerMensaje(): Promise<string> {
+  const [nombre, nota] = Object.entries(puntuaciones).reduce((mejor, actual) =>
+    actual[1] > mejor[1] ? actual : mejor,
+  );
+
+  return `${nombre} tiene la puntuación más alta: ${nota}`;
+}
+
+obtenerMensaje().then((mensaje) => console.log(mensaje));
